@@ -50,6 +50,11 @@ If you are missing any packages, install them using "npm run install". Use the "
 
 Upon starting the app, you will be able to use the Text Editor in your browser, or install the app for offline use. 
 
+[Screenshot1 shows the file structure and the location of the index.html you will need to use](./assets/Screenshot1.png)
+[Screenshot 2 shows the app open in the browser, saving text, as well as the install button.](./assets/screenshot2.png)
+[Screenshot 3 shows the icon of the downloaded app on the desktop GUI](./assets/screenshot%203.png)
+[Screenshot 4 shows the app running on the desktop, with the text that was created in browser.](./assets/screenshot4.png)
+
 
 ## Credits
 
