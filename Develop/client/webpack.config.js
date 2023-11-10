@@ -3,6 +3,9 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
+const WorkboxPlugin = require("workbox-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 module.exports = () => {
   return {
@@ -10,21 +13,23 @@ module.exports = () => {
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js',
-      database: './src/js/database.js',
-      editor: './src/js/editor.js',
-      header: './src/js/header.js',
+      // database: './src/js/database.js',
+      // editor: './src/js/editor.js',
+      // header: './src/js/header.js',
     },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+
+    
     plugins: [
             // Webpack plugin that generates our html file and injects our bundles. 
             new HtmlWebpackPlugin({
               template: './index.html',
               title: 'Jate'
             }),
-           
+            new MiniCssExtractPlugin(),
             // Injects our custom service worker
             new InjectManifest({
               swSrc: './src-sw.js',
@@ -58,6 +63,10 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: "asset/resource",
         },
         {
           test: /\.m?js$/,
